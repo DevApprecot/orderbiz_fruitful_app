@@ -1,0 +1,71 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">{{'sidebar_sales_leads' | translate}}</h1>
+  </ion-header-bar>
+  <ion-content>
+    <form name="LeadForm" ng-model="form1">
+      <ion-list>
+        <label ng-class="{ 'has-error-lr' : LeadForm.name.$invalid && LeadForm.name.$touched}" class="item item-input">
+                    <span class="input-label">{{'lead_name' | translate}}:</span>
+                    <input type="text" name="name" ng-minlength="3" ng-maxlength="20" ng-model="tmp.name">
+                </label>
+        <label ng-class="{ 'has-error-lr' : LeadForm.company.$invalid && LeadForm.company.$touched}" class="item item-input">
+                    <span class="input-label">{{'lead_company' | translate}}:</span>
+                    <input type="text" name="company" ng-maxlength="20" ng-model="tmp.company">
+                </label>
+        <label ng-class="{ 'has-error-lr' : LeadForm.title.$invalid && LeadForm.title.$touched}" class="item item-input">
+                    <span class="input-label">{{'lead_title' | translate}}:</span>
+                    <input type="text" name="title" ng-maxlength="20" ng-model="tmp.title">
+                </label>
+        <label ng-class="{ 'has-error-lr' : LeadForm.mobile.$invalid && LeadForm.mobile.$touched}" class="item item-input">
+                    <span class="input-label">{{'tel' | translate}}:</span>
+                    <input type="tel" name="mobile" ng-minlength="3" ng-maxlength="20" ng-model="tmp.mobile">
+                </label>
+        <label ng-class="{ 'has-error-lr' : LeadForm.email.$invalid && LeadForm.email.$touched}" class="item item-input">
+                    <span class="input-label">{{'email' | translate}}:</span>
+                    <input type="email" name="email" ng-model="tmp.email">
+                </label>
+        <!--add on input : location-suggestion -->
+        <!--<label ng-class="{ 'has-error-lr' : LeadForm.address.$invalid && LeadForm.address.$touched}" class="item item-input">
+                <span class="input-label">{{'address' | translate}}:</span>
+                <input type="text" name="address" ng-minlength="3" required ng-model="data.address.uaddress">
+            </label>-->
+        <label ng-class="{ 'has-error-lr' : LeadForm.source.$invalid && LeadForm.source.$touched}" class="item item-input">
+                    <span class="input-label">{{'lead_source' | translate}}:</span>
+                    <input type="text" name="source" ng-minlength="1" ng-maxlength="20" ng-model="tmp.source">
+                </label>
+        <!--type should be number here, but DB returns string. Rethink in future-->
+        <label ng-class="{ 'has-error-lr' : LeadForm.status.$invalid && LeadForm.status.$touched}" class="item item-input item-select">
+                    <div class="input-label">{{'lead_status' | translate}}:</div>
+                    <select ng-model="tmp.status">
+                        <option value="0" ng-value="0">{{'status_notYet' | translate}}</option>
+                        <option value="0" ng-value="1">{{'status_1st' | translate}}</option>
+                        <option value="0" ng-value="2">{{'status_2nd' | translate}}</option>
+                        <option value="0" ng-value="3">{{'status_present' | translate}}</option>
+                        <option value="0" ng-value="4">{{'status_offer' | translate}}</option>
+                        <option value="0" ng-value="5">{{'status_followUp' | translate}}</option>
+                        <option value="0" ng-value="6">{{'status_deal' | translate}}</option>
+                        <option value="0" ng-value="7">{{'status_nodeal' | translate}}</option>
+                    </select>
+                </label>
+        <label ng-class="{ 'has-error-lr' : LeadForm.contact_person.$invalid && LeadForm.contact_person.$touched}" class="item item-input">
+                    <span class="input-label">{{'contact_person' | translate}}:</span>
+                    <input type="tel" name="contact_person" ng-model="tmp.contact_person">
+                </label>
+        <label ng-class="{ 'has-error-lr' : LeadForm.contact_person_title.$invalid && LeadForm.contact_person_title.$touched}" class="item item-input">
+                    <span class="input-label">{{'contact_person_title' | translate}}:</span>
+                    <input type="text" name="contact_person_title" ng-model="tmp.contact_person_title">
+                </label>
+        <ion-button ng-show="flagEdit" class="button button-block button-clear" ng-disabled="LeadForm.$invalid" ng-click="addItem(tmp, tmp.index)">
+          {{'save' | translate}}
+        </ion-button>
+        <ion-button ng-show="!flagEdit" class="button button-block button-clear" ng-disabled="LeadForm.$invalid" ng-click="addItem(tmp)">
+          {{'add' | translate}}
+        </ion-button>
+        <ion-button class="button button-block button-clear" ng-click="closeModal()">
+          {{'cancel' | translate}}
+        </ion-button>
+      </ion-list>
+    </form>
+  </ion-content>
+</ion-modal-view>

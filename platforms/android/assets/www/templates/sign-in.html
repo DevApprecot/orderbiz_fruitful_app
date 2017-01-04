@@ -1,0 +1,26 @@
+<ion-view hide-nav-bar="true" view-title="">
+  <ion-header-bar class='flexCenterRow'>
+    <title class="title">{{'welcome' | translate}}</title>
+  </ion-header-bar>
+  <ion-content ng-init="initlogin()" class="sign-in">
+    <img class="flexCenterRow" id="logo" src="img/logo.png">
+    <form class="list list-inset" name="logInForm" novalidate ng-submit="login(data)">
+      <label ng-class="{ 'has-error-lr' : logInForm.username.$invalid && logInForm.username.$touched}" class="item item-input">
+                <input ng-enter="focusPass()" name="username" type="text" placeholder="{{'username' | translate}}" ng-model="data.username" autocapitalize="none" autocorrect="off" spellcheck="false" required>
+            </label>
+      <label ng-class="{ 'has-error-lr' : logInForm.password.$invalid && logInForm.password.$touched}" class="item item-input">
+                <input name="password" type="password" placeholder="{{'password' | translate}}" ng-model="data.password" required id="password">
+            </label>
+      <button class="button button-block button-clear" ng-disabled="logInForm.$invalid">{{'signinbutton' | translate}} </button>
+      <a class="button button-block button-clear" href="#/user/signUp">{{'signupbutton' | translate}}</a>
+      <a class="button button-block button-clear" href="#/forgot_password_1">{{'frg_pass' | translate}}</a>
+    </form>
+    <div class="button-bar flexCenterRow relative">
+      <button class="button button-icon icon of_show sound_button" ng-click="changeAudioStatus(media.status)" ng-class="{'ion-volume-mute':media.status == true, 'ion-volume-high':media.status == false}"></button>
+      <a class="button de" ng-class="{'selected':data.language == 'de'}" ng-click="changeLan('de')"></a>
+      <a class="button eng" ng-class="{'selected':data.language == 'en'}" ng-click="changeLan('en')"></a>
+      <a class="button gr" ng-class="{'selected':data.language == 'el'}" ng-click="changeLan('el')"></a>
+    </div>
+    <!--      <div style="margin-left:12px" ng-translate-language-select></div>-->
+  </ion-content>
+</ion-view>

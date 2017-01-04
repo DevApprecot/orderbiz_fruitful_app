@@ -1,0 +1,93 @@
+<ion-view view-title="">
+
+    <ion-header class="padding bar bar-subheader bar-shadow flex">
+        <h1 class="left"><span class="h-title">{{'settings' | translate}}</span></h1>
+    </ion-header>
+
+    <ion-content class="has-subheader padding">
+
+        <form class="list list-inset" name="ProfileForm" ng-controller="ProfileCtrl" novalidate>
+            <div class="item item-divider">
+                {{'accountdetail' | translate}}
+            </div>
+
+            <label ng-class="{ 'has-error-lr' : ProfileForm.firstName.$invalid && ProfileForm.firstName.$touched}" class="item item-input">
+                <span class="input-label">{{'name' | translate}}:</span>
+                <input type="text" name="firstName" ng-minlength="3" ng-maxlength="20" required ng-model="data.user.uname">
+            </label>
+
+
+            <label ng-class="{ 'has-error-lr' : ProfileForm.lastName.$invalid && ProfileForm.lastName.$touched}" class="item item-input">
+                <span class="input-label">{{'surname' | translate}}:</span>
+                <input type="text" name="lastName" ng-minlength="3" ng-maxlength="20" required ng-model="data.user.usurname">
+            </label>
+
+
+            <label ng-class="{ 'has-error-lr' : ProfileForm.phoneNumber.$invalid && ProfileForm.phoneNumber.$touched}" class="item item-input"> 
+                <span class="input-label">{{'tel' | translate}}:</span>
+                <input type="tel" name="phoneNumber" ng-minlength="3" ng-maxlength="20" required ng-model="data.user.utelephone">
+            </label>
+
+            <!--<label ng-class="{ 'has-error-lr' : ProfileForm.address.$invalid && ProfileForm.address.$touched}" class="item item-input">
+                <span class="input-label">{{'address' | translate}}:</span>
+                <input type="text" name="address" ng-minlength="3" required ng-model="data.user.uaddress">
+            </label>-->
+
+            <!--test google places 1 working-->
+            <label ng-class="{ 'has-error-lr' : ProfileForm.address.$invalid && ProfileForm.address.$touched}" class="item item-input">
+                <span class="input-label">{{'address' | translate}}:</span>
+                <input type="text" name="address" location-suggestion required ng-model="data.user.uaddress">
+            </label>
+            <!--end test 1-->
+
+           
+            <label ng-class="{ 'has-error-lr' : ProfileForm.address_number.$invalid && ProfileForm.address_number.$touched}" class="item item-input">
+                <span class="input-label">{{'number' | translate}}:</span>
+                <input type="text" name="address_number" ng-minlength="1" ng-maxlength="20" required ng-model="data.user.unumber">
+            </label>
+
+            <!--type should be number here, but DB returns string. Rethink in future-->
+            <label ng-class="{ 'has-error-lr' : ProfileForm.zip_code.$invalid && ProfileForm.zip_code.$touched}" class="item item-input">
+                <span class="input-label">{{'zipc' | translate}}:</span>
+                <input type="text" name="zip_code" required ng-model="data.user.uzipcode">
+            </label>
+
+            <label class="item item-input item-text-wrap">
+                <span class="input-label">{{'email' | translate}}:</span>
+                <input type="email" name="email" ng-model="data.user.uemail" readonly>
+            </label>
+
+            <label class="item item-input">
+                <span class="input-label">{{'username' | translate}}:</span>
+                <input type="text" name="userName" ng-model="data.user.uusername" readonly>
+            </label>
+
+            <button class="button button-block button-clear" ng-click="update(data.user)" ng-disabled="ProfileForm.$invalid">{{'save' | translate}}</button>
+            <button class="button button-block button-clear" ng-click="openModal(1)">{{'change_password' | translate}}</button>
+
+        </form>
+        <div class="item item-divider">
+            {{'ship_address' | translate}}
+        </div>
+        <a class="button button-block button-icon" ng-click="openModal(2)"><i class="icon dark ion-ios-plus-outline"></i></a>
+
+        <ion-list can-swipe="true">
+
+            <ion-item class="item-icon-right" ng-repeat="address in addresses track by address.id">
+                <i class="icon ion-chevron-left icon-accessory"></i>
+
+                <h2>{{address.uaddress}}</h2>
+                <ion-option-button class="button_delete button-assertive" ng-click="deleteAddress($index, address.id)">
+                    <i class="icon ion-trash-a"></i>
+                </ion-option-button>
+
+                <ion-option-button class="button-info" ng-click="edit(address)">
+                    <i class="icon ion-edit"></i>
+                </ion-option-button>
+
+
+            </ion-item>
+
+        </ion-list>
+    </ion-content>
+</ion-view>

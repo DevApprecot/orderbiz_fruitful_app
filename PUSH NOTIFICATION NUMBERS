@@ -1,0 +1,22 @@
+GCM PROJECT NUMBER: 195442383604
+API KEY:  AIzaSyD0aYSpbGtRXZ2fRRgBq7zFuMQshYjn7Gc 
+
+curl -X POST -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIyMDBlOWI4OC1kNDFmLTQ5NDEtYWQ5OC0yMDAyZmI2MWM5ZmQifQ.62oIGQsFeMS3ypP3AK-HsLxeNqiTsgfFOV6eP9L0ecw" -H "Content-Type: application/json" -d '{
+    "tokens": ["DEV-e79e9cab-d710-4ea2-a09c-a7bba3d1757b"],
+    "profile": "sansoft",
+    "notification": {
+        "message": "This is my demo push!"
+    }
+}' "https://api.ionic.io/push/notifications"
+
+
+
+-------FOR DEVICE-------
+
+curl -X POST -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIyMDBlOWI4OC1kNDFmLTQ5NDEtYWQ5OC0yMDAyZmI2MWM5ZmQifQ.62oIGQsFeMS3ypP3AK-HsLxeNqiTsgfFOV6eP9L0ecw" -H "Content-Type: application/json" -d '{
+    "tokens": ["eo_Xs1yCrMU:APA91bHCGpGsqQNjwq2B09aVJfNvw89ys2UW7ulKUt9QzJFDyVqdkpgo0EN_PM1v3YLkKJOgwNkT7aFPs3hKhKdzYJ4SoLThNT1_Qmnam_9x-pqhHhqZu-_R3ztZDWh5eJmBwYQ4UWv8"],
+    "profile": "sansoft",
+    "notification": {
+        "message": "Hello World!"
+    }
+}' "https://api.ionic.io/push/notifications"

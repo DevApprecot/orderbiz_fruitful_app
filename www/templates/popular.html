@@ -1,0 +1,17 @@
+<div class="card">
+    <span class="item item-divider">{{name}} / {{'popular' | translate}}</span>
+    <ion-scroll direction="x" class="popular" overflow-scroll="false">
+
+        <div class="" collection-repeat="i in popular" item-height="213" item-width="120">
+            <a ng-href="#/app/products/{{i.pid}}" class="padding-tb">
+                <div class="relative">
+                    <div ng-if="i.pdiscount != 0" class="sp-offer"></div>
+                    <img ng-src="{{$root.media_url}}{{i.pid}}/{{$root.img_thumb}}" alt="{{item.pname}}" onerror="this.style.display='none'" />
+                </div>
+
+
+                <h2 class="text-center item-text-wrap">{{i.pname}}</h2>
+            </a>
+        </div>
+    </ion-scroll>
+</div>

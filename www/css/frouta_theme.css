@@ -1,0 +1,103 @@
+/* Generic */
+
+.link-color {
+    color: #e6614d
+}
+
+.button {
+    color: #acd717 !important;
+}
+
+
+/**Header**/
+
+ion-header-bar,
+.side-line,
+.item-divider,
+.tabs {
+    background: #acd717 !important;
+}
+
+.item-divider {
+    border-color: #acd717;
+}
+
+ion-header-bar .button::before,
+ion-header-bar i::before,
+.item-divider,
+.totalPrice,
+.controls .button-icon.icon::before,
+.bar.bar-stable .title,
+.quant-button::before,
+.bar .title,
+.tabs .icon::before,
+.tabs .tab-title,
+.button-tutorial,
+.button_delete {
+    color: #fff !important;
+}
+
+
+/**Subheader**/
+
+.h-title,
+.h-subtitle,
+.bar-subheader i::before,
+.cd-breadcrumb li> *,
+.cd-multi-steps li> *,
+.clear-button {
+    color: #acd717 !important;
+}
+
+
+/**Dashboard**/
+
+.dashbox {
+    background: #fff;
+}
+
+.add-button {
+    background: #00cc99;
+}
+
+.sub-button {
+    background: #739f32;
+}
+
+
+/**Breadcrumbs**/
+
+.cd-breadcrumb li.current> *,
+.cd-multi-steps li.current> * {
+    color: #acd717;
+}
+
+
+/*Category View*/
+
+.category_view ion-list ion-item:nth-child(odd) a,
+.popup-buttons .button,
+.popup-buttons .button .activated,
+.popup-button {
+    background: #acd717 !important;
+    color: #fff !important;
+}
+
+.category_view ion-list ion-item:nth-child(even) a {
+    background-color: #fff;
+    color: #acd717;
+}
+
+
+/*Popup*/
+
+.popup-button {
+    border-color: #5c8a18;
+}
+
+
+/*Checkout*/
+
+.bottom-right .triangle-wrapper {
+    border-color: transparent transparent #0099cc transparent;
+}

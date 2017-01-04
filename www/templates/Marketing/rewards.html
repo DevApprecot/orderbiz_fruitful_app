@@ -1,0 +1,24 @@
+<ion-view view-title="">
+    <ion-header class="padding bar bar-subheader bar-shadow flex">
+        <h1 class="left"><span class="h-title">{{'sidebar_marketing_rewards' | translate}}</span></h1>
+
+    </ion-header>
+
+
+    <ion-content class="contact has-subheader">
+
+        <form class="list list-inset" name="contactList" novalidate>
+            <h1 class="item item-divider">{{'sidebar_marketing_rewards' | translate}}</h1>
+            <label ng-class="{ 'has-error-lr' : contactList.status.$invalid && contactList.status.$touched}" class="item item-input">
+                <input id="contact-input" type="text" placeholder="{{'recommend' | translate}}" ng-model="Reward.recommend" required>
+                </label>
+            <label class="item item-input wider">
+                <textarea type="text" placeholder="{{'sidebar_sales_notes' | translate}}" ng-model="Reward.message" required rows="10"></textarea>
+            </label>
+
+            <input type="submit" class="button button-clear button-block" value="{{'Send' | translate}}" ng-disabled="contactList.$invalid" ng-click="SendMsg()">
+        </form>
+
+    </ion-content>
+
+</ion-view>

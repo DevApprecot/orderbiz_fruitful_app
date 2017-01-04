@@ -1,0 +1,62 @@
+<ion-modal-view>
+    <ion-header-bar>
+        <h1 class="title">{{'new_address' | translate}}</h1>
+    </ion-header-bar>
+    <ion-content>
+        <form name="ProfileForm" ng-model="form1">
+            <ion-list>
+
+
+                <label ng-class="{ 'has-error-lr' : ProfileForm.firstName.$invalid && ProfileForm.firstName.$touched}" class="item item-input">
+                    <span class="input-label">{{'name' | translate}}:</span>
+                    <input type="text" name="firstName" ng-minlength="3" ng-maxlength="20" required ng-model="data.address.uname">
+                </label>
+
+
+                <label ng-class="{ 'has-error-lr' : ProfileForm.lastName.$invalid && ProfileForm.lastName.$touched}" class="item item-input">
+                    <span class="input-label">{{'surname' | translate}}:</span>
+                    <input type="text" name="lastName" ng-minlength="3" ng-maxlength="20" required ng-model="data.address.usurname">
+                </label>
+
+
+                <label ng-class="{ 'has-error-lr' : ProfileForm.phoneNumber.$invalid && ProfileForm.phoneNumber.$touched}" class="item item-input">
+                    <span class="input-label">{{'tel' | translate}}:</span>
+                    <input type="tel" name="phoneNumber" ng-minlength="3" ng-maxlength="20" required ng-model="data.address.utelephone">
+                </label>
+
+
+                <label ng-class="{ 'has-error-lr' : ProfileForm.address.$invalid && ProfileForm.address.$touched}" class="item item-input">
+                    <span class="input-label">{{'address' | translate}}:</span>
+                    <input location-suggestion type="text" name="address" required ng-model="data.address.uaddress">
+                </label>
+                <!--add on input : location-suggestion -->
+
+
+                <!--<label ng-class="{ 'has-error-lr' : ProfileForm.address.$invalid && ProfileForm.address.$touched}" class="item item-input">
+                <span class="input-label">{{'address' | translate}}:</span>
+                <input type="text" name="address" ng-minlength="3" required ng-model="data.address.uaddress">
+            </label>-->
+
+
+                <label ng-class="{ 'has-error-lr' : ProfileForm.address_number.$invalid && ProfileForm.address_number.$touched}" class="item item-input">
+                    <span class="input-label">{{'number' | translate}}:</span>
+                    <input type="text" name="address_number" ng-minlength="1" ng-maxlength="20" required ng-model="data.address.unumber">
+                </label>
+
+                <!--type should be number here, but DB returns string. Rethink in future-->
+                <label ng-class="{ 'has-error-lr' : ProfileForm.zip_code.$invalid && ProfileForm.zip_code.$touched}" class="item item-input">
+                    <span class="input-label">{{'zipc' | translate}}:</span>
+                    <input type="tel" name="zip_code" required ng-model="data.address.uzipcode">
+                </label>
+
+                <ion-button class="button button-block button-clear" ng-disabled="ProfileForm.$invalid" ng-click="addItem(data.address)">
+                    {{'add' | translate}}
+                </ion-button>
+                <ion-button class="button button-block button-clear" ng-click="closeModal(2)">
+                    {{'cancel' | translate}}
+                </ion-button>
+
+            </ion-list>
+        </form>
+    </ion-content>
+</ion-modal-view>

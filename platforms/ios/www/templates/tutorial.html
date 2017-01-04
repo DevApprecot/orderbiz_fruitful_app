@@ -1,0 +1,83 @@
+<ion-view hide-back-button="true" hide-nav-bar view-title="">
+    <ion-nav-buttons side="left">
+        <button class="button button-tutorial button-positive button-clear no-animation" ng-click="startApp()" ng-show="!slideIndex">
+            {{'tutorial_skip' | translate}}
+        </button>
+        <button class="button button-tutorial button-positive button-clear no-animation" ng-click="previous()" ng-show="slideIndex > 0">
+            {{'tutorial_back' | translate}}
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-tutorial button-positive button-clear no-animation" ng-click="next()" ng-show="slideIndex != 5">
+            {{'tutorial_next' | translate}}
+        </button>
+        <button class="button button-tutorial button-positive button-clear no-animation" ng-click="startApp()" ng-show="slideIndex == 5">
+            {{'tutorial_done' | translate}}
+        </button>
+    </ion-nav-buttons>
+
+
+
+    <ion-slide-box class="tutorial" on-slide-changed="slideChanged(index)">
+        <ion-slide>
+
+
+            <img ng-show="data.language === 'en'" src="img/fav-order-en.jpg">
+            <img ng-show="data.language === 'el'" src="img/fav-order-gr.jpg">
+            <img ng-show="data.language === 'de'" src="img/fav-order-de.jpg">
+
+
+        </ion-slide>
+        <ion-slide>
+
+
+            <img ng-show="data.language === 'en'" src="img/checkout-en.jpg">
+            <img ng-show="data.language === 'el'" src="img/checkout-gr.jpg">
+            <img ng-show="data.language === 'de'" src="img/checkout-de.jpg">
+
+
+        </ion-slide>
+        <ion-slide>
+
+
+            <img ng-show="data.language === 'en'" src="img/products-en.jpg">
+            <img ng-show="data.language === 'el'" src="img/products-gr.jpg">
+            <img ng-show="data.language === 'de'" src="img/products-de.jpg">
+
+
+        </ion-slide>
+        <ion-slide>
+
+
+            <img ng-show="data.language === 'en'" src="img/request_product-en.jpg">
+            <img ng-show="data.language === 'el'" src="img/request_product-gr.jpg">
+            <img ng-show="data.language === 'de'" src="img/request_product-de.jpg">
+
+
+        </ion-slide>
+
+        <ion-slide>
+
+
+            <img ng-show="data.language === 'en'" src="img/notifications-en.jpg">
+            <img ng-show="data.language === 'el'" src="img/notifications-gr.jpg">
+            <img ng-show="data.language === 'de'" src="img/notifications-de.jpg">
+
+
+        </ion-slide>
+
+        <ion-slide>
+
+
+            <img ng-show="data.language === 'en'" src="img/quantity-en.jpg">
+            <img ng-show="data.language === 'el'" src="img/quantity-gr.jpg">
+            <img ng-show="data.language === 'de'" src="img/quantity-de.jpg">
+
+
+        </ion-slide>
+    </ion-slide-box>
+    <ion-footer>
+        Test
+    </ion-footer>
+
+</ion-view>

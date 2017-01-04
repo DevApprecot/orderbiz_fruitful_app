@@ -1,0 +1,77 @@
+.dashboard .f_price,
+.dashboard .l_price,
+.brands .f_price,
+.brands .l_price {
+    font-size: 30px;
+}
+
+.totalPrice,
+.notif_icon.ion-paper-airplane:before,
+.notif_icon.ion-loop:before {
+    font-size: 24px;
+}
+
+.h-title,
+.dashboard .title,
+.brands .title,
+.card .icon::before,
+.card .text-center,
+h2,
+.menu-left .item-content,
+.popup-title,
+.categories {
+    font-size: 18px;
+}
+
+.h-subtitle,
+.dashboard .subtitle,
+.brands .subtitle,
+.detail .description>p,
+.dashbox> *,
+.clear-button,
+.popup-sub-title,
+.cd-breadcrumb li a {
+    font-size: 16px;
+}
+
+.detail .f_price,
+.detail .l_price,
+.detail .quantity,
+.brands .quantity,
+.icon.history_icon::before {
+    font-size: 30px;
+}
+
+.discount {
+    font-size: 15px;
+}
+
+.item-divider,
+.card .button,
+.big_font {
+    font-size: 20px;
+}
+
+.quant-button::before {
+    font-size: 24px;
+}
+
+.popup .button {
+    font-size: 14px;
+}
+
+
+/**Header bar adjust font size for increased height**/
+
+.bar .button.button-icon::before,
+.bar button.button-clear .icon::before {
+    font-size: 38px;
+}
+
+#search-bar input {
+    font-size: 18px;
+}
+
+.bar .title {
+    font-size: 18px;
+}

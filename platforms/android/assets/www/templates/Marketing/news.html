@@ -1,0 +1,13 @@
+<ion-view view-title="">
+  <ion-content class="dashboard">
+    <ion-list>
+      <ion-item class="item-no-border item-no-background" ng-repeat="item in News | orderBy:-date" ng-click="newClicked(item)">
+        <div class="padding item-divider relative">
+          <div class="">{{item.date | parseDate}}</div>
+          <div class="item-text-wrap">{{item.text}}</div>
+        </div>
+        
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

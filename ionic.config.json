@@ -1,0 +1,11 @@
+{
+  "name": "agent",
+  "app_id": "f4b8105d",
+  "browsers": [
+    {
+      "platform": "android",
+      "browser": "crosswalk",
+      "version": "12.41.296.5"
+    }
+  ]
+}

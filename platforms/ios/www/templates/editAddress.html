@@ -1,0 +1,54 @@
+<ion-modal-view>
+    <ion-header-bar>
+        <h1 class="title">{{'edit_add' | translate}}</h1>
+    </ion-header-bar>
+    <ion-content>
+        <form name="editForm" ng-model="form1">
+            <ion-list>
+
+
+                <label ng-class="{ 'has-error-lr' : editForm.firstName.$invalid && editForm.firstName.$touched}" class="item item-input">
+                    <span class="input-label">{{'name' | translate}}:</span>
+                    <input type="text" name="firstName" ng-minlength="3" ng-maxlength="20" required ng-model="editAddress.uname">
+                </label>
+
+
+                <label ng-class="{ 'has-error-lr' : editForm.lastName.$invalid && editForm.lastName.$touched}" class="item item-input">
+                    <span class="input-label">{{'surname' | translate}}:</span>
+                    <input type="text" name="lastName" ng-minlength="3" ng-maxlength="20" required ng-model="editAddress.usurname">
+                </label>
+
+
+                <label ng-class="{ 'has-error-lr' : editForm.phoneNumber.$invalid && editForm.phoneNumber.$touched}" class="item item-input">
+                    <span class="input-label">{{'tel' | translate}}:</span>
+                    <input type="tel" name="phoneNumber" ng-minlength="3" ng-maxlength="20" required ng-model="editAddress.utelephone">
+                </label>
+
+                <label ng-class="{ 'has-error-lr' : editForm.address.$invalid && editForm.address.$touched}" class="item item-input">
+                    <span class="input-label">{{'address' | translate}}:</span>
+                    <input type="text" location-suggestion name="address" ng-minlength="3" required ng-model="editAddress.uaddress">
+                </label>
+
+
+                <label ng-class="{ 'has-error-lr' : editForm.address_number.$invalid && editForm.address_number.$touched}" class="item item-input">
+                    <span class="input-label">{{'number' | translate}}:</span>
+                    <input type="text" name="address_number" ng-minlength="1" ng-maxlength="20" required ng-model="editAddress.unumber">
+                </label>
+
+                <!--type should be number here, but DB returns string. Rethink in future-->
+                <label ng-class="{ 'has-error-lr' : editForm.zip_code.$invalid && editForm.zip_code.$touched}" class="item item-input">
+                    <span class="input-label">{{'zipc' | translate}}:</span>
+                    <input type="tel" name="zip_code" required ng-model="editAddress.uzipcode">
+                </label>
+
+                <ion-button class="button button-block button-clear" ng-disabled="editForm.$invalid" ng-click="updateAddress(editAddress)">
+                    {{'save' | translate}}
+                </ion-button>
+                <ion-button class="button button-block button-clear" ng-click="closeModal(3)">
+                    {{'cancel' | translate}}
+                </ion-button>
+
+            </ion-list>
+        </form>
+    </ion-content>
+</ion-modal-view>

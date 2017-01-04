@@ -1,0 +1,26 @@
+{
+  "myCompany": {
+    "company": "T-Mobile",
+    "ceo": "Paul Jahn",
+    "lat": "48.776458",
+    "lng": "9.162329",
+    "giro":"1.224.223,93",
+    "avg_giro":"345,03",
+    "avg_giro_today":"355,11",
+    "avg_orders":"11",
+    "avg_orders_today":"12",
+    "salespersons": [{
+      "name": "John Miller",
+      "lat": "48.758428",
+      "lng": "9.166412"
+    }, {
+      "name": "Oliver Mattishall",
+      "lat": "48.772796",
+      "lng": "9.187233"
+    }, {
+      "name": "Elena Rowsey",
+      "lat": "48.789712",
+      "lng": "9.192635"
+    }]
+  }
+}

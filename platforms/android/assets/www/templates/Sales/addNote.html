@@ -1,0 +1,26 @@
+<ion-modal-view>
+    <ion-content class="contact">
+        <form class="list list-inset" name="contactList" novalidate>
+            <h1 class="item item-divider">{{'sidebar_sales_notes' | translate}}</h1>
+            <label ng-class="{ 'has-error-lr' : contactList.status.$invalid && contactList.status.$touched}" class="item item-input item-select">
+                    <div  class="input-label">{{'lead_company' | translate}}:</div>
+                    <select ng-show="Leads.length > 0" ng-model="Note.company" required>
+                        <option value="{{item.company}}" ng-repeat="item in Leads.concat(Contacts)">{{item.company}}</option>
+                    </select>
+                    <select ng-show="Leads == undefined" ng-model="Note.company" required>
+                        <option value="{{Note.company}}">{{Note.company}}</option>
+                    </select>
+                </label>
+
+            <label class="item item-input wider">
+                <textarea type="text" placeholder="{{'sidebar_sales_notes' | translate}}" ng-model="Note.message" required rows="10"></textarea>
+            </label>
+            <ion-button class="button button-block button-clear" ng-disabled="contactList.$invalid" ng-click="SaveNote()">
+          {{'add' | translate}}
+        </ion-button>
+        <ion-button class="button button-block button-clear" ng-click="closeModal()">
+          {{'cancel' | translate}}
+        </ion-button>
+        </form>
+    </ion-content>
+</ion-modal-view>

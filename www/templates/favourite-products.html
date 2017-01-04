@@ -1,0 +1,70 @@
+<ion-view view-title="" name="products" ng-controller="FavouriteProductsCtrl" ng-init="fav_products_init()">
+
+
+    <ion-header class="padding bar my-subheader bar-shadow flex">
+        <h1 class="left"><span class="h-title">{{'favproducts' | translate}}</span></h1>
+    </ion-header>
+
+
+    <ion-content ng-class="{'has-subheader' : platform === 'android', 'has-footer' : platform ==='ios'}" class="brands">
+
+        <span class="no_content" ng-show="fav_products.length < 1"> {{'no_products' | translate}}</span>
+
+        <ion-list>
+            <ion-item ng-href="#/app/products/{{item.pid}}" class="item_content" ng-repeat="item in fav_products |filter: userSearch.input">
+                <div class="row">
+                    <div class="col col-33 item-img relative of_hidden" ng-class="{'default':!item.Product_Photo}">
+                        <div ng-click="handleFavourite($index, item.pid)" class="bookmark" onclick="return false"></div>
+                        <img ng-src="{{$root.media_url}}{{item.pid}}/{{$root.img_thumb}}" alt="{{item.pname}}" onerror="this.style.display='none'" ng-class="{'fixPosition':item.pdiscount!=0}" />
+                    </div>
+
+                    <div class="col">
+                        <div class="row flex padding-tb">
+
+                            <ul>
+                                <li ng-if="item.pdiscount != 0" class="f_price"><span class="inner">
+                                            {{item.pprice | number:2}}€
+                                            </span></li>
+                                <li class="l_price">{{item.pprice*(1-(item.pdiscount*0.01)) | number:2}}€</li>
+
+
+                            </ul>
+                            <p ng-if="item.pdiscount != 0" class="discount item-text-wrap">{{item.pdiscount}}%</p>
+
+
+
+                        </div>
+
+                        <small>{{"vat" | translate}}</small>
+
+                        <div class="row padding-tb">
+                            <ul>
+                                <li class="title item-text-wrap link-color">{{item.pname}}</li>
+                                <li class="subtitle link-color">{{item.psubname}}</li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="col col-25 flexCenterRow">
+                        <div class="card controls">
+                            <div class='item-item-divider add-button flexCenterRow'>
+                                <button class="button button-icon icon ion-plus button-block" ng-click="add2cart(item)" onclick="return false" on-hold="longAdd.hold(item)" on-release="longAdd.release()">
+                            </div>
+                            <div ng-click="setQuantity(item)" ng-if="item.quantity === 0" onclick="return false" class='item padding quantity text-center'>
+                                <i class="icon ion-edit edit_icon"></i>
+                            </div>
+                            <div ng-click="setQuantity(item)" ng-if="item.quantity !== 0" onclick="return false" class='item padding quantity text-center item-text-wrap'>
+                                {{item.quantity}}
+                            </div>
+                            <div class='item-item-divider sub-button flexCenterRow'>
+                                <button class="button button-icon icon ion-minus button-block" ng-click="subfromcart(item)" onclick="return false" on-hold="longSub.hold(item)" on-release="longSub.release()">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

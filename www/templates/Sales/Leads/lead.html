@@ -1,0 +1,94 @@
+<ion-view view-title="">
+  <ion-header class="padding bar my-subheader bar-subheader bar-shadow flex">
+    <h1 class="left"><span class="h-title">{{activeLead.company}}</span></h1>
+    <button class="button button-clear icon-right" ng-click="show()"><i class="icon light ion-plus-circled"></i></button>
+  </ion-header>
+  <ion-content class="has-subheader">
+    <ion-list>
+      <div class="item item-icon-left" href="">
+        <i class="icon ion-person"></i> {{activeLead.name}} - {{activeLead.title}}
+      </div>
+      <a class="item item-icon-left" ng-href="mailto:{{activeLead.email}}">
+        <i class="icon ion-email"></i> {{activeLead.email}}
+      </a>
+      <a class="item item-icon-left item-icon-right" ng-href="tel:{{activeLead.mobile}}">
+        <i class="icon ion-chatbubble-working"></i> {{activeLead.mobile}}
+        <i class="icon ion-ios-telephone-outline"></i>
+      </a>
+      <div class="item item-icon-left" href="">
+        <i class="icon ion-information-circled"></i> {{activeLead.source}}
+      </div>
+      <div class="item item-icon-left" href="">
+        <i class="icon ion-loop"></i>
+        <div ng-switch on="activeLead.status" class="">
+          <span ng-switch-when="0">{{'status_notYet' | translate}}</span>
+          <span ng-switch-when="1">{{'status_1st' | translate}}</span>
+          <span ng-switch-when="2">{{'status_2nd' | translate}}</span>
+          <span ng-switch-when="3">{{'status_present' | translate}}</span>
+          <span ng-switch-when="4">{{'status_offer' | translate}}</span>
+          <span ng-switch-when="5">{{'status_followUp' | translate}}</span>
+          <span ng-switch-when="6">{{'status_deal' | translate}}</span>
+          <span ng-switch-when="7">{{'status_nodeal' | translate}}</span>
+        </div>
+      </div>
+      <div class="item item-divider">{{ 'contact_person' | translate}}</div>
+      <div class="item item-icon-left" href="">
+        <i class="icon ion-person"></i> {{activeLead.contact_person}} - {{activeLead.contact_person_title}}
+      </div>
+      <div class="item item-divider">{{ 'activity' | translate}}</div>
+      <div ng-click="ActivityClicked($index)" ng-repeat="item in activeLead.activities">
+        <!--<div class="item" ng-show="!isGroupShown(item)">
+          <div class="history_item">
+            <div class="row flexCenterRow">
+              <div class="col col-20 big_font flexCenterRow"><i ng-class="{'balanced': item.status == '1', 'assertive': item.status == '2', 'calm':item.status == '0'}"
+                  class="icon small_icons ion-ios-circle-filled"></i>
+              </div>
+              <div class="col">
+                <div>
+                  <span class="strong item-text-wrap">
+                            {{item.date}} </span>
+                  <span class=""> - {{item.type}}</span>
+                </div>
+              </div>
+              <div class="col col-10">
+                <i ng-click="toggleGroup(item)" class="icon icon-right ion-chevron-down history_icon"></i>
+              </div>
+            </div>
+          </div>
+        </div>-->
+        <!--<div ng-click="toggleGroup(item)" class="item item-accordion history_animation" ng-show="isGroupShown(item)">-->
+        <div class="card">
+          <div class="row flexCenterRow">
+            <div class="col col-20 big_font flexCenterRow"><i ng-class="{'balanced': item.status == '1', 'assertive': item.status == '2', 'calm':item.status == '0'}" class="icon small_icons ion-ios-circle-filled"></i>
+            </div>
+            <div class="col">
+              <div>
+                <span class="strong item-text-wrap">
+                            {{item.date | parseDate}} - 
+                <span ng-switch on="item.type" class="">
+                  <span ng-switch-when="0">{{'appointment' | translate}}</span>
+                <span ng-switch-when="1">{{'appointment_call' | translate}}</span>
+                <span ng-switch-when="2">{{'appointment_internet' | translate}}</span>
+                <span ng-switch-when="3">{{'appointment_mail' | translate}}</span>
+                <span ng-switch-when="4">{{'appointment_meeting' | translate}}</span>
+                <span ng-switch-when="5">{{'appointment_other' | translate}}</span>
+                </span>
+                </span>
+                <div class="padding">{{item.note}}<span class="item-note">{{ 'notes' | translate}}</span></div>
+                <div class="padding">{{item.next_step}}<span ng-class="{'balanced' : item.next_step_completed == '1'}" class="item-note">{{ 'next_step' | translate}}</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="item item-divider">{{ 'notes' | translate}}</div>
+      <ion-list>
+        <ion-item class="item-no-border" ng-repeat="item in activeLead.notes">
+          <div class="card card-small">
+            <div class="item-text-wrap padding">{{item.message}}</div>
+          </div>
+        </ion-item>
+      </ion-list>
+    </ion-list>
+  </ion-content>
+</ion-view>

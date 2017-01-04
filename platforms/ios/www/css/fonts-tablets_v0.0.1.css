@@ -1,0 +1,89 @@
+    /**Product List Styles**/
+    
+    .total-container p,
+    .total-container .icon:before,
+    .categories,
+    .itemSubtitle,
+    .first-price,
+    .category_view ion-item{
+        font-size: 20px !important;
+    }
+    
+    .search-bar,
+    .discount,
+    .quantity,
+    .title,
+    .product-item .quantity p,
+    ion-side-menu a{
+        font-size: 24px !important;
+    }
+    
+    .itemTitle,
+    .last-price,
+    .detailsHeader,
+    .feedTitle,
+    .orderHeader,
+    .orderHeader,
+    .category_view .show_all a,
+    .select-button {
+        font-size: 26px !important;
+    }
+    
+    p,
+    form input,
+    form textarea,
+    .slideDown>p {
+        font-size: 22px !important;
+    }
+    
+    .checkOutList>div>span,
+    .history div>span {
+        font-size: 24px;
+    }
+    
+    .customColour .icon:before,
+    .orderHeader .icon:before,
+    .detail-product .quantity,
+    .checkOutList>div>a {
+        font-size: 38px !important;
+    }
+    
+    .add-button>button>i:before,
+    .history .icon:before {
+        font-size: 36px !important;
+    }
+    /**Detail Product Styles**/
+    
+    .detail-product .add-button>button>i:before {
+        font-size: 54px !important;
+    }
+    
+    .detail-product .sub-button>button>i:before {
+        font-size: 46px !important;
+    }
+    
+    .detail-product .customColour .icon:before {
+        font-size: 65px !important;
+    }
+    
+    .sub-button>button>i:before,
+    .add-button>button>i:before {
+        font-size: 54px !important;
+    }
+    
+    .header-badge {
+        top: -34px !important;
+        left: 13px !important;
+        font-size: 28px;
+        width:26px;
+        height:26px;
+        padding:0px;
+    }
+    
+    .sub-button>button>i:before {
+        margin-left: 90px;
+    }
+
+    ion-side-menu {
+        width:350px !important;
+    }

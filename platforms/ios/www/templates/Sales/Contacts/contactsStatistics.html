@@ -1,0 +1,17 @@
+<ion-view view-title="">
+  <ion-header class="padding bar my-subheader bar-subheader bar-shadow flex">
+    <h1 class="left"><span class="h-title">{{'sidebar_sales_customers' | translate}}</span></h1>
+  </ion-header>
+  <ion-content class="has-subheader">
+    <ion-list>
+      <ion-item ng-repeat="contact in Contacts" ng-click="contactClicked(contact)">
+        <div class="">
+          <span class="strong">{{contact.company}}</span>
+        </div>
+        <div>
+          <span>{{contact.name}}</span>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

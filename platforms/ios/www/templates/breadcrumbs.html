@@ -1,0 +1,11 @@
+<ion-header class="padding bar bar-subheader bar-shadow flex">
+    <nav>
+        <ol class="cd-breadcrumb custom-separator">
+
+            <li ng-show="getState() > 0" ng-class="{'current': getState() == 1 }"><a href="#/app/store_cat_1">{{'store'|translate}}</a></li>
+            <li ng-show="getState() > 1 " ng-class="{'current': getState() == 2 }"><a ng-href="#/app/store_cat_2/{{bread2}}">{{name1}}</a></li>
+            <li ng-show="getState() > 2 " ng-class="{'current': getState() == 3 }"><a ng-href="#/app/store_cat_3/{{bread3}}">{{name2}}</a></li>
+            <li ng-show="getState() > 3 " ng-class="{'current': getState() == 4 }"><a >{{name3}}</a></li>
+        </ol>
+    </nav>
+</ion-header>

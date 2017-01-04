@@ -1,0 +1,96 @@
+<!--new version-->
+<ion-view view-title="" hide-back-button="true">
+
+    <ion-content class="dashboard">
+
+<ion-list>
+    <ion-item ng-repeat="promo in promos">
+        <img ng-src="img/Promos/{{promo.url}}">
+    </ion-item>
+
+</ion-list>
+
+
+
+
+    </ion-content>
+
+</ion-view>
+
+
+
+<!--OLD DASHBOARD-->
+        <!--<ion-refresher pulling-text="{{'refresher' | translate}}" on-refresh="doRefresh();doRef()">
+        </ion-refresher>-->
+
+
+
+
+        <!--<div class="padding">
+            <a href="#/app/store_cat_1" class="button button-bar icon ion-ios-cart icon-left">{{"go_store" | translate}}<i class="right icon icon-right ion-chevron-right"></i></a>
+        </div>-->
+
+
+
+
+        <!--<div class="padding" ng-repeat="(pIndex, item) in ft_products">
+            <ion-list>
+                <a class="item item-divider padding item-icon-right" ng-href="#/app/store_cat_2/{{item.cat_id}}">{{item.cat_name}}<i class="icon" ng-class="{'ion-wineglass':item.cat_id==1 , 'ion-android-bar':item.cat_id==2, 'ion-beaker':item.cat_id==3}"></i></a>
+                <ion-item class="item_content" ng-repeat="product in item.products" ng-href="#/app/products/{{product.pid}}">
+                    <div class="row">
+
+                        <div class="col col-33 item-img relative of_hidden" ng-class="{'default':!item.Product_Photo}">
+                            <div onclick="return false" ng-click="handleFavourite(pIndex, $index, product.pfav, product.pid)" class="bookmark" ng-class="{'isNotFavourite':product.pfav == 0}"></div>
+                            <img ng-src="{{$root.media_url}}{{product.pid}}/{{$root.img_thumb}}" alt="{{product.pname}}" onerror="this.style.display='none'" ng-class="{'fixPosition':product.pdiscount!=0}" class="fadeIn" />
+                        </div>
+
+                        <div class="col">
+                            <div class="row flex padding-tb">
+
+                                <ul>
+                                    <li ng-if="product.pdiscount != 0" class="f_price"><span class="inner">
+                                            {{product.pprice | number:2}}€
+                                            </span></li>
+                                    <li class="l_price">{{product.pprice*(1-(product.pdiscount*0.01)) | number:2}}€</li>
+
+
+                                </ul>
+
+                                <p ng-if="product.pdiscount != 0" class="discount custom-padding item-text-wrap">{{product.pdiscount}}%</p>
+
+
+
+                            </div>
+                            <small>{{"vat" | translate}}</small>
+
+                            <div class="row">
+                                <ul>
+                                    <li class="title item-text-wrap">{{product.pname}}</li>
+                                    <li class="subtitle">{{product.psubname}}</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col col-22 flexCenterRow">
+                            <div class="card controls">
+                                <div class='item-item-divider add-button flexCenterRow'>
+                                    <button on-hold="longAdd.hold(product)" on-release="longAdd.release()" class="button button-icon icon ion-plus button-block" ng-click="add2cart(product)" onclick="return false">
+                                </div>
+                                <div onclick="return false" ng-if="product.quantity === 0" ng-click="setQuantity(product)" class='item padding quantity text-center'>
+                                    <i class="icon ion-edit edit_icon"></i>
+                                </div>
+                                <div onclick="return false" ng-if="product.quantity !== 0" ng-click="setQuantity(product)" class='item padding quantity text-center item-text-wrap'>
+                                    {{product.quantity}}
+                                </div>
+                                <div class='item-item-divider sub-button flexCenterRow'>
+                                    <button on-hold="longSub.hold(product)" on-release="longSub.release()" class="button button-icon icon ion-minus button-block" ng-click="subfromcart(product)" onclick="return false">
+                                </div>
+
+                            </div>
+                        </div>
+
+                      
+                </ion-item>
+            </ion-list>
+            </div>-->
+

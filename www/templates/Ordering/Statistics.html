@@ -1,0 +1,25 @@
+<ion-view view-title="">
+    <ion-header class="padding bar my-subheader bar-subheader bar-shadow flex">
+    <h1 class="left"><span class="h-title">{{'sidebar_order_stats' | translate}} - {{company.company}}</span></h1>
+  </ion-header>
+  <ion-content class="has-subheader">
+    <ion-list>
+      <div class="item item-icon-left" href="">
+        <i class="icon ion-person"></i> {{company.ceo}}
+      </div>
+      <div class="item item-divider">{{ 'statistics' | translate}}</div>
+      <div class="item" href="">
+        {{ 'giro' | translate}} : <span class="strong my-pull-right" >{{company.giro}}</span>
+      </div>
+      <div class="item" href="">
+        {{ 'avg_giro' | translate}} : <span class="strong my-pull-right" >{{company.avg_giro}}</span>
+      </div><div class="item" href="">
+        {{ 'avg_giro_today' | translate}} : <span ng-class="{'balanced': company.avg_giro_today >= company.avg_giro, 'assertive': company.avg_giro_today < company.avg_giro}" class="strong my-pull-right" >{{company.avg_giro_today}} <i class="icon" ng-class="{'balanced ion-arrow-graph-up-right': company.avg_giro_today >= company.avg_giro, 'assertive ion-arrow-graph-down-right': company.avg_giro_today < company.avg_giro}"></i></span>
+      </div><div class="item" href="">
+        {{ 'avg_orders' | translate}} : <span class="strong my-pull-right" >{{company.avg_orders}}</span>
+      </div><div class="item" href="">
+        {{ 'avg_orders_today' | translate}} : <span ng-class="{'balanced': company.avg_orders_today >= company.avg_orders, 'assertive': company.avg_orders_today < company.avg_orders}" class="strong my-pull-right" >{{company.avg_orders_today}} <i ng-class="{'balanced ion-arrow-graph-up-right': company.avg_orders_today >= company.avg_orders, 'assertive ion-arrow-graph-down-right': company.avg_orders_today < company.avg_orders}"  class="icon"></i></span>
+      </div>
+    </ion-list>
+  </ion-content>
+</ion-view>

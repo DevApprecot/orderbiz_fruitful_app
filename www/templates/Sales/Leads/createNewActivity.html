@@ -1,0 +1,57 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">{{'activity' | translate}}</h1>
+  </ion-header-bar>
+  <ion-content>
+    <form name="ActivityForm" ng-model="form1">
+      <ion-list>
+        <label ng-class="{ 'has-error-lr' : ActivityForm.date.$invalid && ActivityForm.date.$touched}" class="item item-input">
+                    <span class="input-label">{{'date' | translate}}:</span>
+                    <input type="date" name="date" ng-model="tmp.date">
+                </label>
+        <label ng-class="{ 'has-error-lr' : ActivityForm.type.$invalid && ActivityForm.type.$touched}" class="item item-input item-select">
+                    <div class="input-label">{{'lead_type' | translate}}:</div>
+                    <select ng-model="tmp.type">
+                        <option value="0">{{'appointment' | translate}}</option>
+                        <option value="1">{{'appointment_call' | translate}}</option>
+                        <option value="2">{{'appointment_internet' | translate}}</option>
+                        <option value="3">{{'appointment_mail' | translate}}</option>
+                        <option value="4">{{'appointment_meeting' | translate}}</option>
+                        <option value="5">{{'appointment_other' | translate}}</option>
+                    </select>
+                </label>
+        <label ng-class="{ 'has-error-lr' : ActivityForm.note.$invalid && ActivityForm.note.$touched}" class="item item-input">
+                    <span class="input-label">{{'notes' | translate}}:</span>
+                    <input type="text" name="note" ng-model="tmp.note">
+                </label>
+        <label ng-class="{ 'has-error-lr' : ActivityForm.status.$invalid && ActivityForm.status.$touched}" class="item item-input item-select">
+                    <div class="input-label">{{'lead_status' | translate}}:</div>
+                    <select ng-model="tmp.status">
+                        <option value="0">{{'neutral'|translate}}</option>
+                        <option value="1">{{'positive'|translate}}</option>
+                        <option value="2">{{'negative'|translate}}</option>
+                    </select>
+                </label>
+        <label ng-class="{ 'has-error-lr' : ActivityForm.next_step.$invalid && ActivityForm.next_step.$touched}" class="item item-input">
+                    <span class="input-label">{{'next_step' | translate}}:</span>
+                    <input type="text" name="next_step" ng-model="tmp.next_step">
+                </label>
+        <!--add on input : location-suggestion -->
+        <!--<label ng-class="{ 'has-error-lr' : ActivityForm.address.$invalid && ActivityForm.address.$touched}" class="item item-input">
+                <span class="input-label">{{'address' | translate}}:</span>
+                <input type="text" name="address" ng-minlength="3" required ng-model="data.address.uaddress">
+            </label>-->
+        <label ng-class="{ 'has-error-lr' : ActivityForm.next_step_completed.$invalid && ActivityForm.next_step_completed.$touched}">
+                    <ion-checkbox ng-model="tmp.next_step_completed">{{'lead_next_step_completed' | translate}}</ion-checkbox>
+                </label>
+       
+        <ion-button class="button button-block button-clear" ng-disabled="ActivityForm.$invalid" ng-click="addItem(tmp)">
+          {{'add' | translate}}
+        </ion-button>
+        <ion-button class="button button-block button-clear" ng-click="closeModal()">
+          {{'cancel' | translate}}
+        </ion-button>
+      </ion-list>
+    </form>
+  </ion-content>
+</ion-modal-view>

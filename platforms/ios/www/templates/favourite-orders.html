@@ -1,0 +1,182 @@
+<ion-view class="history" view-title="" ng-controller="FavouriteOrdersCtrl" ng-init="fav_init()">
+
+
+    <ion-header class="padding bar my-subheader bar-shadow flex">
+        <h1 class="left"><span class="h-title">{{'favorders' | translate}}</span></h1>
+
+        <div class="right flex">
+
+            <label class="item-select sort-list history_sort">
+                <select ng-model="orderType">
+                    <option value="-odate">{{'sort_DATEUP'|translate}}</option>
+                    <option value="odate">{{'sort_DATEDOWN'|translate}}</option>
+                    <option value="ototal">{{'sort_UP'|translate}}</option>
+                    <option value="-ototal">{{'sort_DOWN'|translate}}</option>
+                </select>
+            </label>
+
+
+
+        </div>
+    </ion-header>
+
+
+    <ion-content ng-class="{'has-subheader' : platform === 'android', 'has-footer':platform ==='ios'}">
+
+        <span class="no_content" ng-show="userFavOrders.length < 1"> {{'no_orders' | translate}}</span>
+
+        <div class="card noPadding relative" ng-repeat="order in userFavOrders | filter: userSearch.input | orderBy:orderType:reverse">
+
+            <div ng-click="subFromFavourites($index, order.oid, order.ofav)" class="order-bookmark" ng-class="{'isNotFavourite':order.ofav == 0}"></div>
+
+            <div class="item item-divider flex relative">
+
+                <span>#{{order.oid}} | {{order.oname}}</span>
+
+            </div>
+
+            <div class="item" ng-show="!isGroupShown(order)">
+
+                <div class="history_item">
+                    <div class="row flexCenterRow">
+                        <div ng-click="favouriteCheckout(order.products, order.rproducts)" class="col col-20 big_font add_cart_icon flexCenterRow">
+                        </div>
+                        <div class="col">
+                            <div ng-switch on="order.ostatus" class="">
+
+                                <span ng-switch-when="1" class="status1">{{'pending' | translate}}</span>
+                                <span ng-switch-when="2" class="status2">{{'progress' | translate}}</span>
+                                <span ng-switch-when="3" class="status3">{{'completed' | translate}}</span>
+
+                            </div>
+                            <div>
+                                <span class="strong item-text-wrap">
+                            {{'total' | translate}}: </span>
+                                <span class="">{{order.ototal | number:2}}€</span>
+
+                            </div>
+
+                            <div>
+                                <span class="item-text-wrap">{{order.omsg}}</span>
+
+                            </div>
+                        </div>
+                        <div class="col col-10">
+                            <i ng-click="toggleGroup(order)" class="icon icon-right ion-chevron-down history_icon"></i>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+            <div ng-click="toggleGroup(order)" class="item item-accordion history_animation" ng-show="isGroupShown(order)">
+
+                <div class="item">
+                    <div class="row">
+                        <div class="col text-center">
+                            <i class="icon ion-ios-wineglass"></i>
+                        </div>
+
+                        <div class="col  text-center">
+                            <i class="icon ion-ios-pricetags-outline"></i>
+                        </div>
+
+                        <div class="col text-center">
+                            <i class="icon ion-android-cart"></i>
+                        </div>
+
+                        <div class="col text-center">
+                            <i class="icon ion-social-euro"></i>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="item" ng-repeat="product in order.products">
+                    <div class="row">
+                        <div class="col text-center item-text-wrap flexCenterRow" ng-class="{'custom-product':product.hasOwnProperty('custom_product_id')}">
+                            <p>{{product.pname}}</p>
+                        </div>
+                        <div class="col text-center flexCenterRow">
+                            <p>{{product.pprice * (1-(product.pdiscount*0.01)) | number:2 }}€</p>
+                        </div>
+                        <div class="col text-center flexCenterRow">
+                            <p>x{{product.quantity}}</p>
+                        </div>
+                        <div class="col text-center flexCenterRow">
+                            <p>{{product.pprice * (1-(product.pdiscount*0.01)) * product.quantity | number:2 }}€</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item custom-product" ng-repeat="rproduct in order.rproducts">
+                    <div class="row">
+                        <div class="col text-center item-text-wrap flexCenterRow" ng-class="{'custom-product':product.hasOwnProperty('custom_product_id')}">
+                            <p>{{rproduct.pname}}</p>
+                        </div>
+                        <div class="col text-center flexCenterRow">
+                            <p>-</p>
+                        </div>
+                        <div class="col text-center flexCenterRow">
+                            <p>x{{rproduct.quantity}}</p>
+                        </div>
+                        <div class="col text-center flexCenterRow">
+                            <p>-</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item item-text-wrap">
+                    <div class="">
+
+                        <span class="strong">
+                            {{'comments' | translate}}: </span><span class="padding-lr">{{order.omsg}}</span>
+
+                    </div>
+                </div>
+                <div class="item item-text-wrap">
+                    <div class="">
+
+                        <span class="strong">
+                            {{'ship_address' | translate}}: </span><span class="padding-lr">{{order.oaddr}}</span>
+
+                    </div>
+                </div>
+                <div class="item">
+                    <div ng-switch on="order.ostatus" class="">
+
+                        <span class="strong">{{'order_status' | translate}}:</span>
+                        <span ng-switch-when="1" class="padding-lr status1">{{'pending' | translate}}</span>
+                        <span ng-switch-when="2" class="padding-lr status2">{{'progress' | translate}}</span>
+                        <span ng-switch-when="3" class="padding-lr status3">{{'completed' | translate}}</span>
+
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="">
+
+                        <span class="strong">
+                            {{'total' | translate}}: </span><span class="padding-lr">{{order.ototal | number:2}}€</span>
+
+                    </div>
+                </div>
+
+                <button class="button button-block button-clear" ng-click="favouriteCheckout(order.products, order.rproducts)">{{'acart' | translate}}</button>
+
+            </div>
+
+        </div>
+    </ion-content>
+
+
+</ion-view>

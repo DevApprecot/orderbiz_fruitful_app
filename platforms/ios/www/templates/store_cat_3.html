@@ -1,0 +1,52 @@
+<ion-view view-title="">
+    <breadcrumbs></breadcrumbs>
+    <ion-content class="has-subheader category_view">
+        <!--this will be uncommented when service will be ready-->
+        <!--<ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
+        </ion-refresher>-->
+
+        <popularproducts></popularproducts>
+        <ion-item ng-href="#/app/product-list-of-brands/b/b{{super_cat}}" class="categories item-icon item-icon-right">
+            <!--ng-click='show_all()'>-->
+            {{'showall' | translate}}
+            <i class="icon ion-chevron-right"></i>
+        </ion-item>
+
+        <ion-list>
+            <ion-item ng-href="#/app/product-list-of-brands/{{super_cat}}/{{item.id}}" ng-repeat="item in brand | matchValues:super_cat" class="categories item-icon item-icon-right">
+                {{item.name}}
+                <i class="icon ion-chevron-right"></i>
+            </ion-item>
+        </ion-list>
+
+
+
+    </ion-content>
+
+    <div class="myPopup animate" ng-if="data.areSimilarProducts">
+        <div class="title padding text-center">{{"myPopup_msg"|translate}}.</div>
+        <ion-scroll zooming="true" direction="y" class="inner-popup bar-shadow">
+
+
+            <div class="popup-items">
+                <div class='row' ng-repeat="item in checkout_products | filter: {r_cat_level1:category_type}">
+                    <div class="col col-20 of_hidden default">
+                        <img ng-src="{{$root.media_url}}{{item.pid}}/{{$root.img_tiny}}" alt="{{item.pname}}" onerror="this.style.display='none'">
+                    </div>
+                    <div class="col flex">
+                        <p>{{item.pname}}</p>
+                    </div>
+                    <div class="col flex">
+                        <p>x{{item.quantity}}</p>
+                    </div>
+                </div>
+            </div>
+        </ion-scroll>
+        <div class="button button-icon popup-button" ng-click="data.areSimilarProducts=false">
+            <i class="icon ion-android-close"></i>
+        </div>
+
+    </div>
+
+
+</ion-view>
