@@ -16,7 +16,7 @@ angular.module('drinkMe')
         var favourite_products = [];
         var results = [];
         var dash_products = [];
-
+        var theme = "css/frouta_theme.css"; //default theme
         var current_products = [];
 
         var bread2 = "";
@@ -28,7 +28,13 @@ angular.module('drinkMe')
         var receivedNotification = false;
 
 
+        var set_theme = function (t){
+            theme = t;
+        }
 
+        var get_theme = function(){
+            return theme;
+        }
 
         var set_receivedNotification = function (status) {
             receivedNotification = status;
@@ -415,7 +421,9 @@ angular.module('drinkMe')
             remove_favourite_product: remove_favourite_product,
             syncFav: syncFav,
             set_store_all: set_store_all,
-            get_store_all: get_store_all
+            get_store_all: get_store_all,
+            set_theme: set_theme,
+            get_theme: get_theme
         }
     })
 

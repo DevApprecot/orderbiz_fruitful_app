@@ -783,6 +783,7 @@ angular.module('drinkMe')
   $scope.$on('$ionicView.beforeEnter', function (event, data) {
 
     $scope.loadLeads();
+    $scope.Notes = [];
     $scope.loadNotes();
 
   });
@@ -1156,32 +1157,7 @@ angular.module('drinkMe')
 
 .controller('dashboardCtrl', function ($scope, $http, $ionicHistory, $ionicLoading, AuthService, UtilitySrv, handleFavouriteProduct, getProducts, appdata) {
 
-  var dash_products = [];
-  $scope.promos = [{
-    "url": "discount1.png"
-  }, {
-    "url": "discount1_2.png"
-  }, {
-    "url": "discount2.png"
-  }, {
-    "url": "offer1.jpg"
-  }, {
-    "url": "offer2.jpg"
-  }, {
-    "url": "offer3.jpg"
-  }, {
-    "url": "offer4.jpg"
-  }, {
-    "url": "offer5.jpg"
-  }, {
-    "url": "offer6.jpg"
-  }, {
-    "url": "offer7.jpg"
-  }, {
-    "url": "offer8.jpg"
-  }, {
-    "url": "offer9.png"
-  }];
+
 
 
   $scope.$on('$ionicView.beforeEnter', function (event, data) {
@@ -1933,17 +1909,20 @@ angular.module('drinkMe')
   $scope.isAdult = false;
   console.log("Is adult: " + $scope.isAdult);
 
-  $scope.user = {
-    firstName: '',
-    lastName: '',
-    phoneNumber: '',
-    email: '',
-    address: '',
-    address_number: '',
-    zip_code: '',
-    userName: '',
-    password: ''
-  };
+   $scope.$on('$ionicView.beforeEnter', function (event, data) {
+    $scope.user = {
+      firstName: '',
+      lastName: '',
+      phoneNumber: '',
+      email: '',
+      address: '',
+      address_number: '',
+      zip_code: '',
+      userName: '',
+      password: ''
+    };
+
+   })
 
   $scope.back = function () {
     $ionicHistory.goBack();
@@ -2513,10 +2492,9 @@ angular.module('drinkMe')
 
 
 
-.controller('SettingsCtrl', function ($scope, $state, $translate, $rootScope, tmhDynamicLocale) {
+.controller('SettingsCtrl', function ($scope, appdata, $state, $translate, $rootScope, tmhDynamicLocale) {
 
-  $scope.old_theme = "css/venus_theme.css";
-  $scope.theme = "css/venus_theme.css";
+  $scope.theme = appdata.get_theme();
 
 
   $scope.changeLan = function (language) {
@@ -2563,9 +2541,10 @@ angular.module('drinkMe')
   $scope.changeTheme = function (theme) {
 
     console.log("switch to " + theme);
-    replacejscssfile($scope.old_theme, theme, "css");
-    $scope.old_theme = theme;
-    $scope.theme = theme;
+    var old_theme = appdata.get_theme();
+    appdata.set_theme(theme);
+    replacejscssfile(old_theme, theme, "css");
+    // $scope.theme = theme;
 
   };
 
@@ -2598,8 +2577,8 @@ angular.module('drinkMe')
       $scope.data.username = window.localStorage.getItem("username");
       $scope.data.password = window.localStorage.getItem("pw");
     } else {
-      $scope.data.username = "ap@anaxoft.com"; //!!!!!!!!!!!!!!!!!!! change this to empty string!! Only for development
-      $scope.data.password = "123";
+      $scope.data.username = "alex"; //!!!!!!!!!!!!!!!!!!! change this to empty string!! Only for development
+      $scope.data.password = "123456";
     }
 
   })

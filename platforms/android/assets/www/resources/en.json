@@ -81,7 +81,7 @@
   "surname": "Surname",
   "name": "Name",
   "accountdetail": "Account details",
-  "username": "User Name",
+  "username": "Username",
   "password": "Password",
   "required": "This field is required",
   "signinbutton": "Sign In",
