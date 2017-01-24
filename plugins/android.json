@@ -4,14 +4,56 @@
         "uninstalled": []
     },
     "config_munge": {
-        "files": {}
+        "files": {
+            "res/xml/config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"StatusBar\"><param name=\"android-package\" value=\"org.apache.cordova.statusbar.StatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Keyboard\"><param name=\"android-package\" value=\"io.ionic.keyboard.IonicKeyboard\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
     },
     "installed_plugins": {
         "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.anaxoft.orderbiz"
+            "PACKAGE_NAME": "com.anaxoft.fruits"
         },
         "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.anaxoft.orderbiz"
+            "PACKAGE_NAME": "com.anaxoft.fruits"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.anaxoft.fruits"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.anaxoft.fruits"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.anaxoft.fruits"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.anaxoft.fruits"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.anaxoft.fruits"
         },
         "cordova-plugin-crosswalk-webview": {
             "XWALK_VERSION": "22+",
@@ -19,22 +61,7 @@
             "XWALK_COMMANDLINE": "--disable-pull-to-refresh-effect",
             "XWALK_MODE": "embedded",
             "XWALK_MULTIPLEAPK": "true",
-            "PACKAGE_NAME": "com.anaxoft.orderbiz"
-        },
-        "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.anaxoft.orderbiz"
-        },
-        "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.anaxoft.orderbiz"
-        },
-        "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.anaxoft.orderbiz"
-        },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.anaxoft.orderbiz"
-        },
-        "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "com.anaxoft.orderbiz"
+            "PACKAGE_NAME": "com.anaxoft.fruits"
         }
     },
     "dependent_plugins": {}

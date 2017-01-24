@@ -39,12 +39,12 @@ module.exports.metadata =
 {
     "cordova-plugin-compat": "1.1.0",
     "cordova-plugin-console": "1.0.5",
-    "cordova-plugin-crosswalk-webview": "2.2.0",
     "cordova-plugin-device": "1.1.4",
     "cordova-plugin-splashscreen": "4.0.1",
     "cordova-plugin-statusbar": "2.2.1",
     "cordova-plugin-whitelist": "1.3.1",
-    "ionic-plugin-keyboard": "2.2.1"
+    "ionic-plugin-keyboard": "2.2.1",
+    "cordova-plugin-crosswalk-webview": "2.2.0"
 };
 // BOTTOM OF METADATA
 });
