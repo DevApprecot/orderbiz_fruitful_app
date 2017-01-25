@@ -3906,8 +3906,12 @@ angular.module('drinkMe')
   $rootScope.$on('$stateChangeStart', function (event, next, nextParams, fromState) {
 
     if (next.name !== 'results')
+    {
       $scope.search = false;
-
+      $scope.userSearch = {
+        input: ''
+      }
+    }
 
     if (next.name !== 'sign-in' && next.name !== 'signUp' && next.name !== 'forgot-password_1') {
       //will change to other service || testing authentication
